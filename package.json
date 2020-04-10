@@ -1,0 +1,29 @@
+{
+  "name": "groceries-api",
+  "version": "1.0.0",
+  "description": "Backend API for grocery app",
+  "main": "handler.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "@types/uuid": "^3.4.6",
+    "aws-sdk": "^2.595.0",
+    "serverless-bundle": "^1.2.5",
+    "serverless-dotenv-plugin": "^2.1.1",
+    "serverless-offline": "^5.12.1",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.39",
+    "serverless-plugin-typescript": "^1.1.9"
+  },
+  "scripts": {
+    "test": "serverless-bundle test"
+  },
+  "author": "",
+  "license": "ISC"
+}

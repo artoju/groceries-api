@@ -1,0 +1,51 @@
+service: groceries-api
+package:
+  individually: true
+  exclude:
+    - node_modules/**
+    - '!node_modules/uuid/**'
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+  - serverless-dotenv-plugin 
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  region: us-east-2
+iamRoleStatements:
+  - Effect: Allow
+    Action:
+      - dynamodb:Query
+      - dynamodb:PutItem
+      - dynamodb:UpdateItem
+    Resource: ${env:TABLE_URN}
+functions:
+  create:
+    handler: handler.create
+    events:
+      - http:
+          path: groceries
+          method: post
+          cors: true
+  list:
+    handler: handler.list
+    events:
+      - http:
+          path: groceries/{listId}
+          method: get
+          cors: true
+  update:
+    handler: handler.update
+    events:
+      - http:
+          path: groceries
+          method: put
+          cors: true
+  remove:
+    handler: handler.remove
+    events:
+      - http:
+          path: groceries
+          method: delete
+          cors: true
