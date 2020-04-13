@@ -49,3 +49,10 @@ functions:
           path: groceries
           method: delete
           cors: true
+  removeAll:
+    handler: handler.removeAll
+    events:
+      - http:
+          path: groceries
+          method: delete
+          cors: true
